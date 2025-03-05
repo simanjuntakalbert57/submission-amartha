@@ -14,14 +14,14 @@ import io.restassured.response.Response;
 
 public class Assertions {
     public void AssertionCreateNewPet(ResponseCreateNewPet responseItem, RequestItem requestItem){
-        Assert.assertEquals(requestItem.name, responseItem.name, "Response body does not match the name");
+        Assert.assertEquals(responseItem.name, requestItem.name, "Response body does not match the name");
         Assert.assertNotNull(responseItem.id,"Response body doesn't contain Id");
-        Assert.assertEquals("available", responseItem.status, "Response body does not match");
+        Assert.assertEquals(responseItem.status, requestItem.status, "Response body does not match");
        
     }
 
     public void AssertionGetPetByPid(ResponseGetPetByPid responseItem, RequestItem requestItem){
-        Assert.assertEquals(requestItem.name, responseItem.name, "Response body does not match the name");
+        Assert.assertEquals(responseItem.name, requestItem.name, "Response body does not match the name");
         Assert.assertNotNull(responseItem.id,"Response body doesn't contain Id");
     }
 
